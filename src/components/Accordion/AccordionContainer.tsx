@@ -46,7 +46,6 @@ export default function AccordionContainer() {
         flexDirection: "column",
         alignItems: "center",
         gap: "10px",
-        width: "500px",
       }}
     >
       {accordions.map((elem) => (

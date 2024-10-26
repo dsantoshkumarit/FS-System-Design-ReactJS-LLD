@@ -25,7 +25,7 @@ const Accordion:React.FC<AccordionProps> = ({
 }) => {
     return (
     <div style={{
-        width: "100%"}}>
+        width: "500px"}}>
         <div
             style={{
                 width: "100%",
@@ -36,7 +36,8 @@ const Accordion:React.FC<AccordionProps> = ({
                 alignItems: "center",
                 justifyContent: "space-between",
                 borderRadius: "5px",
-                padding:"0.5rem 1rem"
+                padding:"0.5rem 1rem",
+                boxSizing : "border-box"
             }}
             onClick={() =>
                 setActiveAccordionId((prevId: number) => (prevId === id ? 0 : id))

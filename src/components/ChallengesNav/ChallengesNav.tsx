@@ -4,7 +4,8 @@ import * as ReactComponents from "../index.ts";
 
 export interface ReactComponentType {
     name : string;
-    component : React.FC
+    component : React.FC;
+    url : string;
 }
 
 const ChallengesNav = () => {
@@ -16,7 +17,7 @@ const ChallengesNav = () => {
                         {
                             return (
                                 <li key={index}>
-                                    <Link to={`/${ReactComponent?.name}`}>{ReactComponent?.name}</Link>
+                                    <Link to={`/${ReactComponent?.url}`}>{ReactComponent?.name}</Link>
                                 </li>
                             );
                         }

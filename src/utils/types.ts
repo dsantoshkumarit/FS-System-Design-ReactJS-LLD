@@ -1,0 +1,1 @@
+export type TimerRefType = {current : number | null}; 

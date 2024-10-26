@@ -10,7 +10,7 @@ function Home() {
                 ReactComponents?.default?.map((ReactComponent: ReactComponentType, index) => 
                     {
                         return (
-                            <Route path={`/${ReactComponent.name}`} element={<ReactComponent.component />} key={index}/>
+                            <Route path={`/${ReactComponent.url}`} element={<ReactComponent.component />} key={index}/>
                         );
                     }
                 )
