@@ -56,6 +56,40 @@ button:focus-visible {
 button:disabled{
   background-color: #7f7f7f;
 }
+.primary{
+  background-color : #0d6efd;
+}
+.primary:disabled{
+  background-color : #031633;
+
+}
+.success{
+  background-color : #198754;
+}
+.success:disabled{
+  background-color : #4d685c;
+
+}
+.danger{
+  background-color : #dc3545;
+}
+.danger:disabled{
+  background-color : #64383c;
+
+}
+.warning{
+  background-color : #ffc107;
+}
+.warning:disabled{
+  background-color : #6f633f;
+}
+.info{
+  background-color : #0dcaf0;
+}
+.info:disabled{
+  background-color : #2d5058;
+}
+
 input{
   font-size : 1rem;
   font-weight: 600;

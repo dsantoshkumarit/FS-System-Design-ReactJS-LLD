@@ -1,23 +1,22 @@
-import  { useState } from "react";
 import ReactDOM  from 'react-dom';
-
 import "./styles.css";
+import useVisibility from "../../customhooks/useVisibility";
 
 interface ModalComponentTypes{
-    toggleModal : ()=>void;
+    hideModal : ()=>void;
 }
 
-const ModalComponent:React.FC<ModalComponentTypes> = ({toggleModal})=>{
+const ModalComponent:React.FC<ModalComponentTypes> = ({hideModal})=>{
     return ReactDOM.createPortal(
         <div className="modal">
-            <div className="overlay" onClick={toggleModal}>
+            <div className="overlay" onClick={hideModal}>
                 <div
-                    className="modal-content"
+                    className="modal-container"
                     onClick={(e) => {
                         e.stopPropagation();
                     }}
                 >
-                    <h2>Modal Title</h2>
+                    <h2 className='modal-header'>Modal Title</h2>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -27,7 +26,7 @@ const ModalComponent:React.FC<ModalComponentTypes> = ({toggleModal})=>{
                         nulla pariatur. Excepteur sint occaecat cupidatat non proident,
                         sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                    <button className="close-modal-btn" onClick={toggleModal}>
+                    <button className="close-modal-btn" onClick={hideModal}>
                         X
                     </button>
                 </div>
@@ -38,14 +37,10 @@ const ModalComponent:React.FC<ModalComponentTypes> = ({toggleModal})=>{
 }
 
 export default function Modal() {
-    const [modal, setModal] = useState(false);
-
-    const toggleModal = () => {
-        setModal(!modal);
-    };
+    const {isVisible, hide, show, toggle} = useVisibility(false);
 
     //Prevents scroll when modal is open
-    if (modal) {
+    if (isVisible) {
         document.body.classList.add("active-modal");
     } else {
         document.body.classList.remove("active-modal");
@@ -53,11 +48,19 @@ export default function Modal() {
 
     return (
         <>
-            <button onClick={toggleModal} className="btn-modal">
-                Open Modal
-            </button>
-            {modal && (
-                <ModalComponent toggleModal={toggleModal} />
+            <h1>
+                React Modal
+            </h1>
+            <section className='btn-container-modal-control'>
+                <button onClick={show} className="btn-modal">
+                    Open Modal
+                </button>
+                <button onClick={toggle} className="btn-modal">
+                    Toggle Modal
+                </button>
+            </section>
+            {isVisible && (
+                <ModalComponent hideModal={hide} />
             )}
         </>
     );

@@ -39,32 +39,36 @@ export default function AccordionContainer() {
   }, [accordionChecks,accordions.length]);
 
   return (
-    <div
-      className="App"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "10px",
-      }}
-    >
-      {accordions.map((elem) => (
-        <Accordion
-          key={elem.id}
-          id={elem.id}
-          title={elem.title}
-          message={elem.message}
-          accordionChecks={accordionChecks}
-          activeAccordionId={activeAccordionId}
-          setActiveAccordionId={setActiveAccordionId}
-          setAccordionChecks={setAccordionChecks}
-        />
-      ))}
-      <button className="proceed-btn"
-        disabled={isDisabled}
+    <>
+      <h1>Accordion</h1>
+      <div
+        className="App"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "10px",
+        }}
       >
-        Proceed
-      </button>
-    </div>
+        {accordions.map((elem) => (
+          <Accordion
+            key={elem.id}
+            id={elem.id}
+            title={elem.title}
+            message={elem.message}
+            accordionChecks={accordionChecks}
+            activeAccordionId={activeAccordionId}
+            setActiveAccordionId={setActiveAccordionId}
+            setAccordionChecks={setAccordionChecks}
+          />
+        ))}
+        <button className="proceed-btn"
+          disabled={isDisabled}
+          onClick={()=>window.location.reload()}
+        >
+          Proceed
+        </button>
+      </div>
+    </>
   );
 }

@@ -2,6 +2,10 @@ body.active-modal {
     overflow-y: hidden;
 }
 
+.btn-container-modal-control{
+    display:flex;
+}
+
 .btn-modal {
     padding: 10px 20px;
     display: block;
@@ -23,7 +27,7 @@ body.active-modal {
     background: rgba(86, 86, 86, 0.8);
 }
 
-.modal-content {
+.modal-container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,6 +38,10 @@ body.active-modal {
     border-radius: 8px;
     max-width: 600px;
     min-width: 300px;
+}
+
+.modal-header{
+    text-align: center;
 }
 
 .close-modal-btn {

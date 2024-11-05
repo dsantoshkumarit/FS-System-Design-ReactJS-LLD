@@ -43,9 +43,9 @@ const StopWatch = () => {
                 <h2>{formatTimer(timerSeconds)}</h2>
             </article>
             <article style={{display : "flex",gap : "5px"}}>
-                <button onClick={startTimer} disabled={isTimerRunning}>Start Timer</button>
-                <button onClick={stopTimer} disabled={!isTimerRunning}>Stop Timer</button>
-                <button onClick={resetTimer} disabled={(timerSeconds === 0 && !isTimerRunning)}>Reset Timer</button>
+                <button className="success" onClick={startTimer} disabled={isTimerRunning}>Start Timer</button>
+                <button className="danger" onClick={stopTimer} disabled={!isTimerRunning}>Stop Timer</button>
+                <button className="warning" onClick={resetTimer} disabled={(timerSeconds === 0 && !isTimerRunning)}>Reset Timer</button>
             </article>
         </section>
     );
