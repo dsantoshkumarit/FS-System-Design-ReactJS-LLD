@@ -4,7 +4,7 @@ const CountdownTimer = () => {
     const [timerSeconds, setTimerSeconds] = useState(0);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
     
-    const timerRef = useRef<number>(null);
+    const timerRef = useRef<number | null>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const getValidTime = useCallback((value : number | string)=>{

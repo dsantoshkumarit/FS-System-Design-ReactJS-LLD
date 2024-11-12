@@ -1,20 +1,23 @@
 import React from "react";
 
+type CountStateType = {
+    count : number;
+};
 
-class Counter extends React.Component{
+class Counter extends React.Component<object, { count: number }> {
     constructor(props : object){
         super(props);
         this.state = {count : 0};
     }
 
     handleIncrement = () => {
-        this.setState((state)=>{
-            return {count : state.count + 1};
+        this.setState((prevState :CountStateType )=>{
+            return {count : prevState?.count ? prevState.count + 1 : 0};
         });
     };
     handleDecrement = () => {
-        this.setState((state)=>{
-            return {count : state.count - 1};
+        this.setState((prevState : CountStateType)=>{
+            return {count : prevState.count - 1};
         });
     };
 

@@ -3,7 +3,7 @@ import React, { useCallback, useRef, useState } from "react";
 const StopWatch = () => {
     const [timerSeconds,setTimerSeconds] = useState(0);
     const [isTimerRunning, setIsTimerRunning] = useState(false);
-    const intervalIdRef = useRef<number>(null);
+    const intervalIdRef = useRef<number | null>(null);
     const startTimer = useCallback(()=>{
         if(!intervalIdRef.current){
             setIsTimerRunning(true);
